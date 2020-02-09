@@ -8,13 +8,14 @@
 package com.pyc.springjpa.dao;
 
 import com.pyc.springjpa.domain.Person;
+import com.pyc.springjpa.support.CustomRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface PersonRepository extends JpaRepository<Person,Long> {
+public interface PersonRepository extends CustomRepository<Person,Long> {
     // 根据地址查询，返回值为列表
     List<Person> findByAddress(String address);
     // 根据姓名和地址查询，返回值为单个对象
